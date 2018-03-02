@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :improvement_plans,
+             :dependent => :destroy
+
   has_many   :comments,
              :class_name => "PlanComment",
              :dependent => :destroy
