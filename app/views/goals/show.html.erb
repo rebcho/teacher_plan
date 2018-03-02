@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Goal has many actions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Actions
+      </li>
+
+      <% @goal.actions.each do |action| %>
+        <li class="list-group-item">
+          <a href="/actions/<%= action.id %>">
+            <%= action.description %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/actions/<%= action.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/actions/<%= action.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_action/<%= action.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Goal has many goal_comments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Goal Comments
+      </li>
+
+      <% @goal.goal_comments.each do |goal_comment| %>
+        <li class="list-group-item">
+          <a href="/goal_comments/<%= goal_comment.id %>">
+            <%= goal_comment.body %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/goal_comments/<%= goal_comment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/goal_comments/<%= goal_comment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_goal_comment/<%= goal_comment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
