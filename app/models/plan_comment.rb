@@ -5,4 +5,6 @@ class PlanComment < ApplicationRecord
 
   # Validations
 
+  validates :body, :presence => true
+
 end
