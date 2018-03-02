@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @action.errors.any? %>
+  <% @action.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Action</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_action" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for goal_id -->
+      <div class="form-group">
+        <label for="goal_id" class="control-label">
+          Goal
+        </label>
+
+        <input type="text" id="goal_id" name="goal_id" placeholder="Goal" class="form-control" value="<%= @action.goal_id %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @action.description %>">
+      </div>
+
+      <!-- Label and input for target_date -->
+      <div class="form-group">
+        <label for="target_date" class="control-label">
+          Target date
+        </label>
+
+        <input type="text" id="target_date" name="target_date" placeholder="Target date" class="form-control" value="<%= @action.target_date %>">
+      </div>
+
+      <!-- Label and input for lead_person -->
+      <div class="form-group">
+        <label for="lead_person" class="control-label">
+          Lead person
+        </label>
+
+        <textarea id="lead_person" name="lead_person" placeholder="Lead person" class="form-control" rows="3"><%= @action.lead_person %></textarea>
+      </div>
+
+      <!-- Label and input for resources_needed -->
+      <div class="form-group">
+        <label for="resources_needed" class="control-label">
+          Resources needed
+        </label>
+
+        <textarea id="resources_needed" name="resources_needed" placeholder="Resources needed" class="form-control" rows="3"><%= @action.resources_needed %></textarea>
+      </div>
+
+      <!-- Label and input for imp_specifics -->
+      <div class="form-group">
+        <label for="imp_specifics" class="control-label">
+          Imp specifics
+        </label>
+
+        <textarea id="imp_specifics" name="imp_specifics" placeholder="Imp specifics" class="form-control" rows="3"><%= @action.imp_specifics %></textarea>
+      </div>
+
+      <!-- Label and input for success_measurement -->
+      <div class="form-group">
+        <label for="success_measurement" class="control-label">
+          Success measurement
+        </label>
+
+        <textarea id="success_measurement" name="success_measurement" placeholder="Success measurement" class="form-control" rows="3"><%= @action.success_measurement %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Action
+      </button>
+      or
+      <a href="/actions">Cancel</a>
+    </form>
+  </div>
+</div>
