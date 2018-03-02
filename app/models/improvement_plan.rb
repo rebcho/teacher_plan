@@ -1,6 +1,8 @@
 class ImprovementPlan < ApplicationRecord
   # Direct associations
 
+  belongs_to :status
+
   has_many   :coachings,
              :foreign_key => "plan_id",
              :dependent => :destroy
