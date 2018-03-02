@@ -10,7 +10,8 @@ class PlanCommentsController < ApplicationController
   end
 
   def index
-    @plan_comments = PlanComment.page(params[:page]).per(10)
+    @q = PlanComment.ransack(params[:q])
+    @plan_comments = @q.result(:distinct => true).includes(:user, :plan).page(params[:page]).per(10)
 
     render("plan_comments/index.html.erb")
   end
