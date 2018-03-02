@@ -17,7 +17,7 @@
 
       <% @improvement_plans.each do |improvement_plan| %>
       <tr>
-        <td><%= improvement_plan.status_id %></td>
+        <td><%= improvement_plan.status.name %></td>
         <td><%= improvement_plan.user_id %></td>
         <td><%= improvement_plan.title %></td>
         <td>
