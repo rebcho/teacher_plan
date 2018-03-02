@@ -54,6 +54,74 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_action" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for goal_id -->
+      <input type="hidden" name="goal_id" value="<%= @goal.id %>">
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for target_date -->
+      <div class="form-group">
+        <label for="target_date" class="control-label">
+          Target date
+        </label>
+
+        <input type="text" id="target_date" name="target_date" placeholder="Target date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for lead_person -->
+      <div class="form-group">
+        <label for="lead_person" class="control-label">
+          Lead person
+        </label>
+
+        <textarea id="lead_person" name="lead_person" placeholder="Lead person" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for resources_needed -->
+      <div class="form-group">
+        <label for="resources_needed" class="control-label">
+          Resources needed
+        </label>
+
+        <textarea id="resources_needed" name="resources_needed" placeholder="Resources needed" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for imp_specifics -->
+      <div class="form-group">
+        <label for="imp_specifics" class="control-label">
+          Imp specifics
+        </label>
+
+        <textarea id="imp_specifics" name="imp_specifics" placeholder="Imp specifics" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for success_measurement -->
+      <div class="form-group">
+        <label for="success_measurement" class="control-label">
+          Success measurement
+        </label>
+
+        <textarea id="success_measurement" name="success_measurement" placeholder="Success measurement" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Action
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +153,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_goal_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <input type="text" id="body" name="body" placeholder="Body" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for goal_id -->
+      <input type="hidden" name="goal_id" value="<%= @goal.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Goal Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
