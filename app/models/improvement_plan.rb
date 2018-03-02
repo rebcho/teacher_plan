@@ -5,6 +5,8 @@ class ImprovementPlan < ApplicationRecord
 
   # Validations
 
+  validates :status_id, :presence => true
+
   validates :title, :presence => true
 
   validates :user_id, :presence => true
