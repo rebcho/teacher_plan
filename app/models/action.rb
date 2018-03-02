@@ -5,4 +5,6 @@ class Action < ApplicationRecord
 
   # Validations
 
+  validates :description, :presence => true
+
 end
