@@ -18,8 +18,20 @@
       <% @plan_comments.each do |plan_comment| %>
       <tr>
         <td><%= plan_comment.body %></td>
-        <td><%= plan_comment.user.first_name %></td>
-        <td><%= plan_comment.plan.title %></td>
+        <td>
+          <% if plan_comment.user.present? %>
+            <a href="/users/<%= plan_comment.user.id %>">
+              <%= plan_comment.user.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if plan_comment.plan.present? %>
+            <a href="/improvement_plans/<%= plan_comment.plan.id %>">
+              <%= plan_comment.plan.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/plan_comments/<%= plan_comment.id %>" class="btn btn-primary">Show</a>
           
