@@ -42,7 +42,7 @@
           Plan
         </label>
 
-        <input type="text" id="plan_id" name="plan_id" placeholder="Plan" class="form-control" value="<%= @plan_comment.plan_id %>">
+        <%= select_tag(:plan_id, options_from_collection_for_select(ImprovementPlan.all, :id, :title, @plan_comment.plan_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
