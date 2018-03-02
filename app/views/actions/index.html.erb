@@ -21,7 +21,7 @@
 
       <% @actions.each do |action| %>
       <tr>
-        <td><%= action.goal_id %></td>
+        <td><%= action.goal.description %></td>
         <td><%= action.description %></td>
         <td><%= action.target_date %></td>
         <td><%= action.lead_person %></td>
