@@ -16,6 +16,14 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :coaches,
+             :through => :improvement_plans,
+             :source => :coaches
+
+  has_many   :trainees,
+             :through => :trainee_improvement_plans,
+             :source => :user
+
   has_many   :trainee_improvement_plans,
              :through => :coachings,
              :source => :plan
